@@ -27,9 +27,6 @@ brew install --cask darktable
 brew install --cask hot
 brew install --cask flux
 brew install --cask aldente
-brew install --cask cleanme
-brew install --cask coconutbattery
-brew install --cask rar
 
 # Remove outdated versions from the cellar.
 brew cleanup
