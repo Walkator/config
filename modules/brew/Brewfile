@@ -1,0 +1,16 @@
+brew openssh
+brew git
+brew tree
+brew htop
+brew neofetch
+brew clamav
+brew flux
+
+cask xcodes
+cask darktable
+cask krita
+cask hot
+cask aldente
+cask cleanme
+cask coconutbattery
+cask rar
