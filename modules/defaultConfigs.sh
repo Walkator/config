@@ -4,10 +4,7 @@
 # https://gist.github.com/brandonb927/3195465
 # https://github.com/mathiasbynens/dotfiles/blob/main/.macos
 
-# If not ran on macOS, exit
-if [ "$(uname -s)" != "Darwin" ]; then
-	exit 0
-fi
+echo -e "Changing macOS defaults..."
 
 set +e
 
@@ -124,8 +121,6 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 # Install System data files & security updates
 defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 
-echo 'Some commands here require restart! Please do that for them to take effect.'
-
 
 
 ###############################################################################
@@ -134,3 +129,6 @@ echo 'Some commands here require restart! Please do that for them to take effect
 
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
 sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+
+
+killall Dock && killall Finder

@@ -1,35 +1,19 @@
 #!/usr/bin/env bash
 
-# If not ran on macOS, exit
-if [ "$(uname -s)" != "Darwin" ]; then
-	exit 0
-fi
+# Brew install and setup
+echo -e "Installing Homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Install command-line tools using Homebrew.
+# Enables brew in current env
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Make sure we’re using the latest Homebrew.
-brew update
+# Disables brew telemetry
+echo -e "Disabling Homebrew telemetry..."
+brew analytics off
 
-# Upgrade any already-installed formulae.
-brew upgrade
-
-# Save Homebrew’s installed location.
-BREW_PREFIX=$(brew --prefix)
-
-# Install some tools
-brew install openssh
-brew install git
-brew install tree
-brew install htop
-brew install neofetch
-brew install clamav
-brew install --cask darktable
-brew install --cask hot
-brew install --cask flux
-brew install --cask aldente
-brew install --cask cleanme
-brew install --cask coconutbattery
-brew install --cask rar
+# Brew Apps installed from Brewfile
+echo -e "Installing apps..."
+brew bundle install --file ./brew/Brewfile
 
 # Remove outdated versions from the cellar.
 brew cleanup
