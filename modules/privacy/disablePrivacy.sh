@@ -236,5 +236,3 @@ sudo launchctl enable system/com.apple.telnetd
 
 
 echo 'Your privacy and security is now hardened 🎉💪'
-echo 'Press any key to exit.'
-read -n 1 -s
